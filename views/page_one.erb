@@ -1,6 +1,10 @@
 <html>
   <head></head>
   <body>
+
+<div id="showinfo">
+</div>
+
     <!--
     BEFORE RUNNING:
     ---------------
@@ -34,10 +38,12 @@
         var innerJson = json.sheets[0].data[0].rowData
         //var obj = JSON.parse(innerJson)
         console.log("myjson", innerJson[0].values[1].formattedValue)
+        //for(var i = 0, i < innerJson.length; i++){
+          //console.log("indexes", innerJson[i]);
+        //}
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
-      
     }
  
     function initClient() {
