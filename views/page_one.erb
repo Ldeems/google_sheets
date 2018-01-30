@@ -31,8 +31,9 @@
         // TODO: Change code below to process the `response` object:
         console.log(response.result);
         var json = response.result
-        //var obj = JSON.parse(json)
-        console.log("myjson", json.sheets[0].data[0].rowData)
+        var innerJson = json.sheets[0].data[0].rowData
+        //var obj = JSON.parse(innerJson)
+        console.log("myjson", innerJson[0].values[1].formattedValue)
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
