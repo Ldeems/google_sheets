@@ -17,6 +17,7 @@
        https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
     -->
     <script>
+    var theData = "hello world ";
     function makeApiCall() {
       var params = {
         // The spreadsheet to request.
@@ -30,21 +31,24 @@
         includeGridData: true,  // TODO: Update placeholder value.
       };
       //console.log("params", params)
+      //console.log("the....dt", theData)
       var request = gapi.client.sheets.spreadsheets.get(params);
       request.then(function(response) {
         // TODO: Change code below to process the `response` object:
         console.log(response.result);
         var json = response.result
-        var innerJson = json.sheets[0].data[0].rowData
-        //var obj = JSON.parse(innerJson)
-        console.log("myjson", innerJson[0].values[1].formattedValue)
-        //for(var i = 0, i < innerJson.length; i++){
-          //console.log("indexes", innerJson[i]);
-        //}
+        innerJson = json.sheets[0].data[0].rowData
+        //console.log("data", theData)
+        var theData = innerJson
+       // console.log("thenewset", innerJson)
+        return innerJson
       }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
+       // console.error('error: ' + reason.result.error.message);
       });
+      console.log("the request", request)
+      return request 
     }
+    //console.log("innerjsonoutsidefunc", innerJson)
  
     function initClient() {
       var API_KEY = 'AIzaSyC-V7jbbXUhd3Jbna0bqy5SpKq8pMuYr10';  // TODO: Update placeholder with desired API key.
@@ -77,7 +81,8 @@
 
     function updateSignInStatus(isSignedIn) {
       if (isSignedIn) {
-        makeApiCall();
+      val = makeApiCall()
+         console.log("this is val", val)
       }
     }
 
