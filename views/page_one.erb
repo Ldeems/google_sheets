@@ -36,16 +36,16 @@
       request.then(function(response) {
         // TODO: Change code below to process the `response` object:
         console.log(response.result);
-        var json = response.result
-        innerJson = json.sheets[0].data[0].rowData
+        //var json = response.result
+        //innerJson = json.sheets[0].data[0].rowData
         //console.log("data", theData)
-        var theData = innerJson
+        //var theData = innerJson
        // console.log("thenewset", innerJson)
-        return innerJson
+       // return innerJson
       }, function(reason) {
        // console.error('error: ' + reason.result.error.message);
       });
-      console.log("the request", request)
+      //console.log("the request", request)
       return request 
     }
     //console.log("innerjsonoutsidefunc", innerJson)
@@ -83,6 +83,8 @@
       if (isSignedIn) {
       val = makeApiCall()
          console.log("this is val", val)
+        var trying = val.Zq.rW;
+         console.log("trying", trying)
       }
     }
 
